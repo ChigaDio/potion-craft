@@ -10,11 +10,11 @@ export default defineConfig({
     rollupOptions: {},
     minify: 'esbuild',
   },
+  // esbuild.define から __HMR_CONFIG_NAME__ を削除！
   esbuild: {
-define: {
-  __HMR_CONFIG_NAME__: JSON.stringify('dev'),
-  __DEFINES__: '{}',
-},
-
+    define: {
+      // __HMR_CONFIG_NAME__: JSON.stringify('dev'),  // ← 削除！
+      __DEFINES__: '{}',
+    },
   },
 })
