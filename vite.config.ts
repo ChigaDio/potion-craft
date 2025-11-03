@@ -4,21 +4,21 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/potion-craft/',  // 正しい
+  base: '/potion-craft/',          // ← ここは正しい
   build: {
     outDir: 'dist',
     minify: 'esbuild',
-    sourcemap: false,  // デバッグ用オフ（HMR漏れ防ぐ）
+    sourcemap: false,              // デバッグ用は OFF
+    emptyOutDir: true,
   },
   esbuild: {
     define: {
-      __DEFINES__: '{}',
+      __DEFINES__: '{}'            // あなたの変数だけ残す
+      // __HMR_CONFIG_NAME__ は **絶対に書かない**
     },
   },
-  server: {
-    hmr: false,  // HMR完全無効（テスト用）
-  },
-  optimizeDeps: {
-    force: true,  // 依存最適化強制
-  },
+  // dev サーバーでも HMR を無効化（テスト用）
+  server: { hmr: false },
+  // 依存最適化を強制（キャッシュ無視）
+  optimizeDeps: { force: true },
 })
