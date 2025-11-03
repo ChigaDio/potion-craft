@@ -11,8 +11,10 @@ export default defineConfig({
     minify: 'esbuild',
   },
   esbuild: {
-    define: {
-      __DEFINES__: '{}', // ✅ ダミー置換
-    },
+define: {
+  __HMR_CONFIG_NAME__: JSON.stringify('dev'),
+  __DEFINES__: '{}',
+},
+
   },
 })
