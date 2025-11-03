@@ -10,9 +10,9 @@ interface Props {
   onEdit: (item: Item) => void;
 }
 
-export function ItemList({ items, onDelete, onEdit }: Props) {
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState<Item | null>(null);
+export function ItemList({ items, onDelete }: Props) {
+  const [, setEditingId] = useState<string | null>(null);
+  const [, setEditForm] = useState<Item | null>(null);
 
   const columns: ColumnDef<Item>[] = [
     {

@@ -1,5 +1,4 @@
 import type { CraftResult } from '../types';
-import { Star } from 'lucide-react';
 
 interface Props {
   data: CraftResult[];
@@ -63,7 +62,7 @@ export function DataTable({ data }: Props) {
               {/* 特性 */}
               <td className="px-4 py-3 text-center">
                 <div className="flex justify-center gap-3 text-sm">
-                  {Object.entries(result.traits).map(([t, { plus, normal, minus }]) => (
+                  {Object.entries(result.traits).map(([t, { plus, normal:_, minus }]) => (
                     <div key={t} className="flex flex-col items-center">
                       <span className="font-bold text-gray-700">{t.slice(-1)}</span>
                       <span className={
