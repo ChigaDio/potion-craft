@@ -11,12 +11,6 @@ export default defineConfig({
     sourcemap: false,              // デバッグ用は OFF
     emptyOutDir: true,
   },
-  esbuild: {
-    define: {
-      __DEFINES__: '{}'            // あなたの変数だけ残す
-      // __HMR_CONFIG_NAME__ は **絶対に書かない**
-    },
-  },
   // dev サーバーでも HMR を無効化（テスト用）
   server: { hmr: false },
   // 依存最適化を強制（キャッシュ無視）
