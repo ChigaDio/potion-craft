@@ -7,6 +7,12 @@ export default defineConfig({
   base: '/potion-craft/',
   build: {
     outDir: 'dist',
-    minify: false, // ✅ ← まずはこれを追加
+    rollupOptions: {},
+    minify: 'esbuild',
+  },
+  esbuild: {
+    define: {
+      __DEFINES__: '{}', // ✅ ダミー置換
+    },
   },
 })
